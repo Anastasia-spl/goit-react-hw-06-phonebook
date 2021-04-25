@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import * as contactActions from '../../redux/contacts/contacts-actions';
+import contactActions from '../../redux/contacts/contacts-actions';
 
 const Filter = ({ value, onFilterChange }) => {
   return (

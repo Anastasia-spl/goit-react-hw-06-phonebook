@@ -1,6 +1,6 @@
 import { createUseStyles } from 'react-jss';
 import { connect } from 'react-redux';
-import * as contactActions from '../../redux/contacts/contacts-actions';
+import contactActions from '../../redux/contacts/contacts-actions';
 
 const useStyles = createUseStyles({
   contactItem: {
@@ -21,23 +21,20 @@ const ContactList = ({ contacts, filter, onDeleteContact }) => {
       : contacts;
   return (
     <ul>
-      {visibleContacts.map(({ name, number, id }) => {
-        console.log(id);
-        return (
-          <li key={id} className={contactItem}>
-            <span>
-              {name}: {number}
-            </span>
-            <button
-              type="button"
-              className={deleteBtn}
-              onClick={() => onDeleteContact(id)}
-            >
-              Delete
-            </button>
-          </li>
-        );
-      })}
+      {visibleContacts.map(({ name, number, id }) => (
+        <li key={id} className={contactItem}>
+          <span>
+            {name}: {number}
+          </span>
+          <button
+            type="button"
+            className={deleteBtn}
+            onClick={() => onDeleteContact(id)}
+          >
+            Delete
+          </button>
+        </li>
+      ))}
     </ul>
   );
 };
