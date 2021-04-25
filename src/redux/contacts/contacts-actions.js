@@ -1,8 +1,9 @@
 import { types } from './contacts-types';
+import { v4 as uuidv4 } from 'uuid';
 
 const addContact = (contact) => ({
   type: types.ADD,
-  payload: contact,
+  payload: {id: uuidv4(), ...contact},
 })
 
 const deleteContact = (id) => ({

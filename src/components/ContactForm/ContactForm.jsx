@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
 import * as contactActions from '../../redux/contacts/contacts-actions';
 import styles from './ContactForm.module.scss';
 
@@ -8,7 +7,6 @@ class ContactForm extends Component {
   state = {
     name: '',
     number: '',
-    id: '',
   };
 
   handleChange = e => {
@@ -43,8 +41,6 @@ class ContactForm extends Component {
     if (this.checkDuplicateContacts(this.state)) {
       return;
     }
-    const id = uuidv4();
-    this.setState({ id });
     this.props.addContact(this.state);
     this.reset();
   };

@@ -21,20 +21,23 @@ const ContactList = ({ contacts, filter, onDeleteContact }) => {
       : contacts;
   return (
     <ul>
-      {visibleContacts.map(({ name, number, id }) => (
-        <li key={id} className={contactItem}>
-          <span>
-            {name}: {number}
-          </span>
-          <button
-            type="button"
-            className={deleteBtn}
-            onClick={() => onDeleteContact(id)}
-          >
-            Delete
-          </button>
-        </li>
-      ))}
+      {visibleContacts.map(({ name, number, id }) => {
+        console.log(id);
+        return (
+          <li key={id} className={contactItem}>
+            <span>
+              {name}: {number}
+            </span>
+            <button
+              type="button"
+              className={deleteBtn}
+              onClick={() => onDeleteContact(id)}
+            >
+              Delete
+            </button>
+          </li>
+        );
+      })}
     </ul>
   );
 };
